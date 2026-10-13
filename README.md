@@ -20,7 +20,7 @@ Aprire http://127.0.0.1:4173. `dist/` contiene il sito generato e non è version
 - `scripts/build.mjs`: testi, contatti, orari, coordinate bancarie, metadati e pagine.
 - `assets/style.css`: colori, impaginazione e adattamento ai dispositivi.
 - `assets/site.js`: menu mobile, copia dell’IBAN e URL di ritorno del modulo.
-- `assets/images/`: logo ufficiale e fotografie esportate dai materiali Canva forniti. `comunita-privacy.png` contiene la foto con i volti dei bambini sfocati; l’originale è conservato soltanto in `work/originals/`, escluso da Git e dalla pubblicazione.
+- `assets/images/`: logo ufficiale e fotografie esportate dai materiali Canva forniti. `comunita-privacy.jpg` contiene la foto con i volti dei bambini sfocati; l’originale è conservato soltanto in `work/originals/`, escluso da Git e dalla pubblicazione.
 - `assets/documents/le-nostre-attivita.pdf`: presentazione ufficiale delle attività esportata da Canva.
 - `assets/calendars/`: appuntamenti settimanali con fuso Europe/Rome, comprensivo dell’ora legale.
 
@@ -48,4 +48,4 @@ Materiali Canva di riferimento:
 
 Font Poppins e DM Sans ospitati localmente; licenze SIL Open Font License incluse in `assets/fonts/`. Nessuna richiesta automatica a Google Fonts, social o mappe. Nessuna analisi del traffico e nessun cookie impostato dal codice del sito.
 
-Ritocco della foto: strumento integrato ImageGen. Brief: “Sfocare leggermente tutti i volti dei bambini, preservando adulti, composizione e sfondo”. La versione ritoccata è utilizzata nella hero, nella sezione comunità e nell’anteprima social.
+Ritocco della foto: pennello Sfocatura di Canva, applicato manualmente ai sette volti dei bambini sulla fotografia originale, senza strumenti generativi. La sola fotografia è stata esportata in JPG e utilizzata nella hero, nella sezione comunità e nell’anteprima social. Progetto Canva dedicato: https://www.canva.com/design/DAHX36ewmIM/LPj5OAyfkL608XKcdTycpw/edit
