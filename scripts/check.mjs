@@ -33,7 +33,8 @@ for(const [,ref] of fontCss.matchAll(/url\(([^)]+)\)/g)){const s=await stat(path
 const contact=await readFile(path.join(root,'contatti/index.html'),'utf8');
 assert.match(contact,/action="https:\/\/formsubmit.co\/martinasegreteria@chiesapostolica.it" method="POST"/);
 assert.match(contact,/type="email"[^>]+required/);assert.match(contact,/type="checkbox"[^>]+required/);
-assert.ok(!contact.includes('_captcha'),'Protezione antispam del provider attiva');
+assert.match(contact,/<input type="hidden" name="_captcha" value="false">/,'CAPTCHA disattivato');
+assert.match(contact,/name="_honey" tabindex="-1" autocomplete="off"/,'Campo antispam invisibile mantenuto');
 const iban='IT25A0103078931000001725550';
 const numeric=(iban.slice(4)+iban.slice(0,4)).replace(/[A-Z]/g,c=>String(c.charCodeAt(0)-55));
 assert.equal(BigInt(numeric)%97n,1n,'IBAN valido');

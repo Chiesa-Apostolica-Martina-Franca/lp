@@ -32,7 +32,7 @@ Ogni push su `main` esegue `.github/workflows/pages.yml`: genera il sito, contro
 
 ## Email senza un server della chiesa
 
-Il modulo di `/contatti/` invia tramite [FormSubmit](https://formsubmit.co/) a `martinasegreteria@chiesapostolica.it`. Il sito non contiene credenziali o chiavi API. FormSubmit gestisce invio e protezione antispam; la risposta del visitatore arriva come indirizzo Reply-To.
+Il modulo di `/contatti/` invia tramite [FormSubmit](https://formsubmit.co/) a `martinasegreteria@chiesapostolica.it`. Il sito non contiene credenziali o chiavi API. FormSubmit gestisce l’invio con CAPTCHA disattivato tramite il campo nascosto `_captcha=false`. Resta attivo il campo antispam invisibile `_honey`; la risposta del visitatore arriva come indirizzo Reply-To.
 
 **Attivazione necessaria:** il primo invio reale genera un messaggio di conferma all’indirizzo della segreteria. Chi gestisce la casella deve aprirlo e confermare. Fino a quella conferma la ricezione del modulo non è verificata. Dopo l’attivazione, inviare un messaggio di prova dal sito pubblico e verificarne la ricezione e la funzione Rispondi. Se l’indirizzo è già attivato, la conferma potrebbe non essere richiesta. Nessun messaggio di prova è stato spedito durante lo sviluppo.
 
