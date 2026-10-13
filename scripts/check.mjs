@@ -11,6 +11,7 @@ for(const file of htmlFiles){
  assert.match(html,/<html lang="it">/);assert.match(html,/<title>.+<\/title>/);assert.equal((html.match(/<h1[ >]/g)||[]).length,1,`${file}: un solo H1`);
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,`${file}: ID unici`);
  const references=[...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map(m=>m[1]);
+ for(const [,srcset] of html.matchAll(/\bsrcset="([^"]+)"/g))references.push(...srcset.split(',').map(candidate=>candidate.trim().split(/\s+/)[0]));
  for(const ref of references){
   if(/^(?:https?:|mailto:|tel:|data:)/.test(ref))continue;
   const [local,anchor]=ref.split('#');

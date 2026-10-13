@@ -20,7 +20,7 @@ Aprire http://127.0.0.1:4173. `dist/` contiene il sito generato e non è version
 - `scripts/build.mjs`: testi, contatti, orari, coordinate bancarie, metadati e pagine.
 - `assets/style.css`: colori, impaginazione e adattamento ai dispositivi.
 - `assets/site.js`: menu mobile, copia dell’IBAN e URL di ritorno del modulo.
-- `assets/images/`: logo ufficiale e fotografie esportate dai materiali Canva forniti. `comunita-privacy.jpg` contiene la foto con i volti dei bambini sfocati; l’originale è conservato soltanto in `work/originals/`, escluso da Git e dalla pubblicazione.
+- `assets/images/`: logo ufficiale e fotografie esportate dai materiali Canva forniti. Le varianti `hero-*.webp` e `comunita-*.webp` mantengono la sfocatura Canva sui volti dei bambini. Gli originali sono conservati nelle cartelle locali `work/originals/` e `work/image-originals/`, escluse da Git e dalla pubblicazione.
 - `assets/documents/le-nostre-attivita.pdf`: presentazione ufficiale delle attività esportata da Canva.
 - `assets/calendars/`: appuntamenti settimanali con fuso Europe/Rome, comprensivo dell’ora legale.
 
@@ -43,3 +43,7 @@ Il collegamento `mailto:` e i numeri di telefono sono sempre disponibili come al
 Font Poppins e DM Sans ospitati localmente; licenze SIL Open Font License incluse in `assets/fonts/`. Nessuna richiesta automatica a Google Fonts, social o mappe. Nessuna analisi del traffico e nessun cookie impostato dal codice del sito.
 
 Ritocco della foto: pennello Sfocatura di Canva, applicato manualmente ai sette volti dei bambini sulla fotografia originale, senza strumenti generativi. La sola fotografia è stata esportata in JPG e utilizzata nella hero, nella sezione comunità e nell’anteprima social.
+
+## Immagini ottimizzate
+
+La hero usa WebP da 800 px sui telefoni e da 1600 px sugli schermi più grandi, con compressione più marcata grazie all’overlay. La foto della comunità e quelle delle attività usano `srcset` e `sizes` per scegliere una variante adeguata allo schermo. Le foto sotto la hero vengono caricate progressivamente (`loading="lazy"`) e decodificate senza bloccare la pagina. La texture è ridotta a 800 px; l’anteprima social usa un JPEG progressivo da 1200 px. Per sostituire le foto, preparare le stesse varianti dalle immagini originali, mantenendo la sfocatura dei bambini.
