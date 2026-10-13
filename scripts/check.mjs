@@ -14,8 +14,9 @@ for(const file of htmlFiles){
  for(const [,srcset] of html.matchAll(/\bsrcset="([^"]+)"/g))references.push(...srcset.split(',').map(candidate=>candidate.trim().split(/\s+/)[0]));
  for(const ref of references){
   if(/^(?:https?:|mailto:|tel:|data:)/.test(ref))continue;
-  const [local,anchor]=ref.split('#');
-  let target=local.startsWith('/lp/')?path.join(root,local.slice(4)):path.resolve(path.dirname(file),local.split('?')[0]||path.basename(file));
+  const [url,anchor]=ref.split('#');
+  const local=url.split('?')[0];
+  let target=local.startsWith('/lp/')?path.join(root,local.slice(4)):path.resolve(path.dirname(file),local||path.basename(file));
   if(local.endsWith('/'))target=path.join(target,'index.html');
   try{
    const info=await stat(target);if(info.isDirectory())target=path.join(target,'index.html');
