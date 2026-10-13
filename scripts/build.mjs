@@ -6,7 +6,9 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
 const origin = 'https://chiesa-apostolica-martina-franca.github.io/lp/';
 const email = 'martinasegreteria@chiesapostolica.it';
-const map = 'https://www.google.com/maps/search/?api=1&query=Chiesa+Apostolica+Via+Locorotondo+Martina+Franca';
+const googleProfile = 'https://share.google/mxujWyYpxoMoZmyit';
+const map = 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x13465307031f9e19:0x68244ec18d413b21';
+const coordinates = {latitude:40.7108918,longitude:17.3347477};
 const social = {Instagram:'https://www.instagram.com/chiesaapostolicamartinafranca/',Facebook:'https://www.facebook.com/profile.php?id=100068484990369',WhatsApp:'https://whatsapp.com/channel/0029VbEFiDYGOj9ngLmiLw1N'};
 const arrow = '<span class="arrow" aria-hidden="true">↗</span>';
 const external = (href,label,cls='') => `<a href="${href}" class="${cls}" target="_blank" rel="noopener noreferrer">${label}${arrow}</a>`;
@@ -71,7 +73,7 @@ const styleVersion = createHash('sha256').update(await readFile(path.join(root,'
 for(const [slug,title,description,content] of pages){
  const prefix = slug ? '../' : './';
  const url=origin+slug;
- const schema={ '@context':'https://schema.org','@type':'Church', name:'Chiesa Apostolica di Martina Franca',url:origin,email,telephone:'+393391113378',address:{'@type':'PostalAddress',streetAddress:'Via Locorotondo SNC',addressLocality:'Martina Franca',postalCode:'74015',addressRegion:'TA',addressCountry:'IT'},sameAs:Object.values(social)};
+ const schema={ '@context':'https://schema.org','@type':'Church', name:'Chiesa Apostolica di Martina Franca',url:origin,email,telephone:'+393391113378',address:{'@type':'PostalAddress',streetAddress:'Via Locorotondo SNC',addressLocality:'Martina Franca',postalCode:'74015',addressRegion:'TA',addressCountry:'IT'},hasMap:map,geo:{'@type':'GeoCoordinates',...coordinates},sameAs:[...Object.values(social),googleProfile]};
  const html=`<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta name="theme-color" content="#202023"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:locale" content="it_IT"><meta property="og:site_name" content="Chiesa Apostolica Martina Franca"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}assets/images/comunita-social.jpg"><meta property="og:image:alt" content="La comunità della Chiesa Apostolica di Martina Franca"><meta name="twitter:card" content="summary_large_image">${slug==='grazie/'?'<meta name="robots" content="noindex,follow">':''}<link rel="icon" href="${prefix}assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${prefix}assets/style.css?v=${styleVersion}"><link rel="preload" href="${prefix}assets/fonts/font-0.ttf" as="font" type="font/ttf" crossorigin><script src="${prefix}assets/site.js" defer></script><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body>${header(prefix,slug)}<main id="contenuto">${content}</main>${footer(prefix)}</body></html>`;
  const dir=path.join(out,slug);await mkdir(dir,{recursive:true});await writeFile(path.join(dir,'index.html'),html);
 }
