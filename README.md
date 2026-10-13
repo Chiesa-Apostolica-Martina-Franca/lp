@@ -20,7 +20,7 @@ Aprire http://127.0.0.1:4173. `dist/` contiene il sito generato e non è version
 - `scripts/build.mjs`: testi, contatti, orari, coordinate bancarie, metadati e pagine.
 - `assets/style.css`: colori, impaginazione e adattamento ai dispositivi.
 - `assets/site.js`: menu mobile, copia dell’IBAN e URL di ritorno del modulo.
-- `assets/images/`: logo ufficiale e fotografie esportate dai materiali Canva forniti. Le varianti `hero-*.webp` e `comunita-*.webp` mantengono la sfocatura Canva sui volti dei bambini. Gli originali sono conservati nelle cartelle locali `work/originals/` e `work/image-originals/`, escluse da Git e dalla pubblicazione.
+- `assets/images/`: logo ufficiale e fotografie esportate dai materiali Canva forniti. Le varianti `hero-in-chiesa-*.webp` e `comunita-*.webp` mantengono la sfocatura Canva sui volti dei bambini. Gli originali sono conservati nelle cartelle locali `work/originals/` e `work/image-originals/`, escluse da Git e dalla pubblicazione.
 - `assets/documents/le-nostre-attivita.pdf`: presentazione ufficiale delle attività esportata da Canva.
 - `assets/calendars/`: appuntamenti settimanali con fuso Europe/Rome, comprensivo dell’ora legale.
 
@@ -42,7 +42,7 @@ Il collegamento `mailto:` e i numeri di telefono sono sempre disponibili come al
 
 Font Poppins e DM Sans ospitati localmente; licenze SIL Open Font License incluse in `assets/fonts/`. Nessuna richiesta automatica a Google Fonts, social o mappe. Nessuna analisi del traffico e nessun cookie impostato dal codice del sito.
 
-Ritocco della foto: pennello Sfocatura di Canva, applicato manualmente ai sette volti dei bambini sulla fotografia originale, senza strumenti generativi. La sola fotografia è stata esportata in JPG e utilizzata nella hero, nella sezione comunità e nell’anteprima social.
+Ritocco delle foto: pennello Sfocatura di Canva applicato manualmente ai volti dei bambini, senza strumenti generativi. La hero usa la foto `IMG_4399.JPG` della comunità riunita in chiesa, esportata da Canva dopo la sfocatura e compressa in WebP. La sezione comunità e l’anteprima social mantengono la fotografia precedente. Gli originali e le esportazioni di lavoro restano nelle cartelle locali `work/`, escluse da Git e dalla pubblicazione.
 
 ## Immagini ottimizzate
 
