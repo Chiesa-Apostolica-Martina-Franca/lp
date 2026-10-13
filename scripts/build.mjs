@@ -10,7 +10,7 @@ const googleProfile = 'https://share.google/mxujWyYpxoMoZmyit';
 const map = 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x13465307031f9e19:0x68244ec18d413b21';
 const coordinates = {latitude:40.7108918,longitude:17.3347477};
 const social = {Instagram:'https://www.instagram.com/chiesaapostolicamartinafranca/',Facebook:'https://www.facebook.com/profile.php?id=100068484990369',WhatsApp:'https://whatsapp.com/channel/0029VbEFiDYGOj9ngLmiLw1N'};
-const arrow = '<span class="arrow" aria-hidden="true">↗</span>';
+const arrow = '<svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg>';
 const external = (href,label,cls='') => `<a href="${href}" class="${cls}" target="_blank" rel="noopener noreferrer">${label}${arrow}</a>`;
 const socialIcons = {
  Instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>',
