@@ -1,0 +1,7 @@
+* text=auto
+*.ics -text
+*.ttf -text
+*.pdf -text
+*.jpg -text
+*.webp -text
+*.png -text
