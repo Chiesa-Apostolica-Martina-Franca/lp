@@ -1,6 +1,7 @@
 import {mkdir, writeFile, cp, readFile, rm} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
 const origin = 'https://chiesa-apostolica-martina-franca.github.io/lp/';
@@ -66,11 +67,12 @@ await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 await cp(path.join(root,'assets'),path.join(out,'assets'),{recursive:true});
 const escape = value=>value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
+const styleVersion = createHash('sha256').update(await readFile(path.join(root,'assets/style.css'))).digest('hex').slice(0,12);
 for(const [slug,title,description,content] of pages){
  const prefix = slug ? '../' : './';
  const url=origin+slug;
  const schema={ '@context':'https://schema.org','@type':'Church', name:'Chiesa Apostolica di Martina Franca',url:origin,email,telephone:'+393391113378',address:{'@type':'PostalAddress',streetAddress:'Via Locorotondo SNC',addressLocality:'Martina Franca',postalCode:'74015',addressRegion:'TA',addressCountry:'IT'},sameAs:Object.values(social)};
- const html=`<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta name="theme-color" content="#202023"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:locale" content="it_IT"><meta property="og:site_name" content="Chiesa Apostolica Martina Franca"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}assets/images/comunita-social.jpg"><meta property="og:image:alt" content="La comunità della Chiesa Apostolica di Martina Franca"><meta name="twitter:card" content="summary_large_image">${slug==='grazie/'?'<meta name="robots" content="noindex,follow">':''}<link rel="icon" href="${prefix}assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${prefix}assets/style.css"><link rel="preload" href="${prefix}assets/fonts/font-0.ttf" as="font" type="font/ttf" crossorigin><script src="${prefix}assets/site.js" defer></script><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body>${header(prefix,slug)}<main id="contenuto">${content}</main>${footer(prefix)}</body></html>`;
+ const html=`<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta name="theme-color" content="#202023"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:locale" content="it_IT"><meta property="og:site_name" content="Chiesa Apostolica Martina Franca"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}assets/images/comunita-social.jpg"><meta property="og:image:alt" content="La comunità della Chiesa Apostolica di Martina Franca"><meta name="twitter:card" content="summary_large_image">${slug==='grazie/'?'<meta name="robots" content="noindex,follow">':''}<link rel="icon" href="${prefix}assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${prefix}assets/style.css?v=${styleVersion}"><link rel="preload" href="${prefix}assets/fonts/font-0.ttf" as="font" type="font/ttf" crossorigin><script src="${prefix}assets/site.js" defer></script><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body>${header(prefix,slug)}<main id="contenuto">${content}</main>${footer(prefix)}</body></html>`;
  const dir=path.join(out,slug);await mkdir(dir,{recursive:true});await writeFile(path.join(dir,'index.html'),html);
 }
 await writeFile(path.join(out,'.nojekyll'),'');
