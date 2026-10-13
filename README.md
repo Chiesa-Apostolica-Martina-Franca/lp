@@ -42,7 +42,7 @@ Il collegamento `mailto:` e i numeri di telefono sono sempre disponibili come al
 
 Font Poppins e DM Sans ospitati localmente; licenze SIL Open Font License incluse in `assets/fonts/`. Nessuna richiesta automatica a Google Fonts, social o mappe. Nessuna analisi del traffico e nessun cookie impostato dal codice del sito.
 
-Ritocco delle foto: pennello Sfocatura di Canva applicato manualmente ai volti dei bambini, senza strumenti generativi. La hero usa la foto `IMG_4399.JPG` della comunità riunita in chiesa, esportata da Canva dopo la sfocatura e compressa in WebP. La sezione comunità e l’anteprima social mantengono la fotografia precedente. Gli originali e le esportazioni di lavoro restano nelle cartelle locali `work/`, escluse da Git e dalla pubblicazione.
+Ritocco delle foto: pennello Sfocatura di Canva applicato manualmente ai volti dei bambini, senza strumenti generativi. La hero e la sezione comunità usano la foto `IMG_4399.JPG` della comunità riunita in chiesa, esportata da Canva dopo la sfocatura e compressa in WebP. Le due sezioni condividono le stesse immagini ottimizzate, così il browser può riutilizzarle senza scaricare altre copie. L’anteprima social mantiene la fotografia precedente. Gli originali e le esportazioni di lavoro restano nelle cartelle locali `work/`, escluse da Git e dalla pubblicazione.
 
 ## Immagini ottimizzate
 
