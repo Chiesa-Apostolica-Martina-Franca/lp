@@ -9,7 +9,12 @@ const map = 'https://www.google.com/maps/search/?api=1&query=Chiesa+Apostolica+V
 const social = {Instagram:'https://www.instagram.com/chiesaapostolicamartinafranca/',Facebook:'https://www.facebook.com/profile.php?id=100068484990369',WhatsApp:'https://whatsapp.com/channel/0029VbEFiDYGOj9ngLmiLw1N'};
 const arrow = '<span class="arrow" aria-hidden="true">↗</span>';
 const external = (href,label,cls='') => `<a href="${href}" class="${cls}" target="_blank" rel="noopener noreferrer">${label}${arrow}</a>`;
-const socialLinks = () => Object.entries(social).map(([label,url])=>external(url,label)).join('');
+const socialIcons = {
+ Instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>',
+ Facebook:'<path d="M14 21v-8h3l.5-4H14V7c0-1.1.4-2 2-2h2V1.5c-.8-.1-1.8-.2-3-.2-3 0-5 1.9-5 5.4V9H7v4h3v8z"/>',
+ WhatsApp:'<path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-4.9A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="m8.5 7.5 1.6 2.8-1 1.1a8.1 8.1 0 0 0 3.5 3.5l1.1-1 2.8 1.6-.6 1.5c-.2.5-.8.7-1.3.6a11.7 11.7 0 0 1-8.2-8.2c-.1-.5.1-1.1.6-1.3Z"/>'
+};
+const socialLinks = () => Object.entries(social).map(([name,url])=>external(url,`<span class="social-label"><svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${socialIcons[name]}</svg><span>${name==='WhatsApp'?'Canale WhatsApp':name}</span></span>`)).join('');
 const button = (href,label,cls='') => `<a href="${href}" class="button ${cls}">${label}${arrow}</a>`;
 const source = (url,label) => `<p class="source-note">Approfondisci sul sito della Chiesa Apostolica in Italia: ${external(url,label)}.</p>`;
 const intro = (title,desc,eyebrow,current) => `<section class="page-hero"><div class="wrap"><nav class="breadcrumb" aria-label="Percorso"><a href="../">Home</a><span aria-hidden="true">/</span><span>${current}</span></nav><span class="eyebrow">${eyebrow}</span><h1>${title}</h1><p>${desc}</p></div></section>`;
