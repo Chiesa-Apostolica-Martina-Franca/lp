@@ -40,12 +40,6 @@ Il collegamento `mailto:` e i numeri di telefono sono sempre disponibili come al
 
 ## Materiali e font
 
-Materiali Canva di riferimento:
-
-- Attività: https://www.canva.com/design/DAHX0Wq24LI/W5rK8rYJAYtnwysZxCOTsA/edit
-- Coordinate per offerte: https://www.canva.com/design/DAG5sC5yWvk/40gQRmVB2Ib0d8pCXfRz7A/edit
-- Foto per la hero: https://www.canva.com/design/DAGXIh396N0/BVnQ-1kZpu3yCRhoE1bVLQ/edit
-
 Font Poppins e DM Sans ospitati localmente; licenze SIL Open Font License incluse in `assets/fonts/`. Nessuna richiesta automatica a Google Fonts, social o mappe. Nessuna analisi del traffico e nessun cookie impostato dal codice del sito.
 
-Ritocco della foto: pennello Sfocatura di Canva, applicato manualmente ai sette volti dei bambini sulla fotografia originale, senza strumenti generativi. La sola fotografia è stata esportata in JPG e utilizzata nella hero, nella sezione comunità e nell’anteprima social. Progetto Canva dedicato: https://www.canva.com/design/DAHX36ewmIM/LPj5OAyfkL608XKcdTycpw/edit
+Ritocco della foto: pennello Sfocatura di Canva, applicato manualmente ai sette volti dei bambini sulla fotografia originale, senza strumenti generativi. La sola fotografia è stata esportata in JPG e utilizzata nella hero, nella sezione comunità e nell’anteprima social.
